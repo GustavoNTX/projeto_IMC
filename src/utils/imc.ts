@@ -1,5 +1,7 @@
 export function calcularIMC(peso: number, altura: number): number {
-  return peso / (altura * altura)
+  if (peso <= 0 || altura <= 0) return 0
+  const imc = peso / (altura * altura)
+  return parseFloat(imc.toFixed(2))
 }
 
 type Sexo = 'masculino' | 'feminino'

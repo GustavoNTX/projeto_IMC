@@ -14,9 +14,23 @@ export default function Home() {
     e.preventDefault()
     if (!sexo || idade === '' || peso === '' || altura === '') return
 
-    const imc = calcularIMC(peso, altura)
-    const classificacao = classificarIMC(imc, sexo as 'masculino' | 'feminino', idade as number)
-    navigate(`/${classificacao}`)
+    const alturaNum = altura as number
+    const pesoNum = peso as number
+    const idadeNum = idade as number
+
+    const imc = calcularIMC(pesoNum, alturaNum)
+    const classificacao = classificarIMC(imc, sexo as 'masculino' | 'feminino', idadeNum)
+    
+    const pesoMinIdeal = parseFloat((18.5 * alturaNum * alturaNum).toFixed(1))
+    const pesoMaxIdeal = parseFloat((24.9 * alturaNum * alturaNum).toFixed(1))
+
+    navigate(`/${classificacao}`, {
+      state: {
+        imc,
+        pesoMinIdeal,
+        pesoMaxIdeal
+      }
+    })
   }
 
   return (
