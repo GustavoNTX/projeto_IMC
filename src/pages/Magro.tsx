@@ -9,10 +9,10 @@ export default function Magro() {
      <div className="container my-5">
       <div className="row align-items-center">
         <div className="col-md-4 text-center mb-4 mb-md-0">
-          <h4 className="fw-bold" style={{ color: '#2ecc71' }}>
+          <h4 className="fw-bold" style={{ color: '#e74c3c' }}>
             SEU IMC É DE {imc?.toFixed(1) ?? '--'} KG/M²
           </h4>
-          <div className="bg-light border border-success rounded p-3 mt-3">
+          <div className="bg-light border border-danger rounded p-3 mt-3">
             <div className="text-center">
               <h5 className="fw-bold" style={{ color: '#2c3e50' }}>IMC</h5>
               <p className="mb-2">{imc?.toFixed(1) ?? '--'}</p>
